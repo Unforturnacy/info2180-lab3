@@ -1,7 +1,7 @@
 var round = 1;
 var squares;
 var board;
-
+var id;
 function newGame() {
     console.log("New Game Button Clicked");
      squares = document.getElementById('board').children;
@@ -25,13 +25,19 @@ function newGame() {
             isvalid(square);
         });
         
+        //important
+        squares[i].innerHTML = "";
+        id = document.getElementById("status");
+        id.innerHTML = "Move your mouse over a square and click to play an X or an O.";
+        id.classList.remove("you-won");
+        
       }
   }
 
 
   function isvalid(square)
   {
-    var id = document.getElementById("status");
+    id = document.getElementById("status");
     if(square.innerHTML == "X" || square.innerHTML == "O")
     {
         console.log("already taken");
